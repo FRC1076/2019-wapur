@@ -1,0 +1,7 @@
+{
+    "python.formatting.provider": "yapf",
+    "editor.formatOnSave": true,
+    "files.trimFinalNewlines": true,
+    "files.insertFinalNewline": true,
+    "editor.formatOnPaste": true,
+}
