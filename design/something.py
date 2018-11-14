@@ -53,4 +53,3 @@ range_list = list(range(0,100))
 for item in range_list:
     if item % 7 == 0:
         print(item, " is divisible by 7")
-
