@@ -74,6 +74,6 @@
 #     if query == person:
 #         print("Query has been found!")
 
-teams = [1076, 803, 1234]
-for team in teams:
-    print(team, "is going to worlds")
+# teams = [1076, 803, 1234]
+# for team in teams:
+#     print(team, "is going to worlds")
