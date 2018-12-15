@@ -48,14 +48,3 @@ class Line():
         if swapped:
             points.reverse()
         return points
-
-
-vals = [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0]
-
-
-
-for x in vals:
-
-	for y in vals:
-
-		print(get_line((0,0),(round(x*8),round(y*8)))
