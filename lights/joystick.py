@@ -22,5 +22,4 @@ js = joystick()
 jl = JoyLights('10.10.76.7', js)
 
 for i in range(100):
-
     jl.update_lights(js.getX(1), js.getY(1))
