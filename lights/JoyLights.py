@@ -42,11 +42,10 @@ class JoyLights:
             self.counter = 0
 
             l = get_line(start=(0, 0), end=(round(4 * 8), round(4 * 8)))
-
+            w = []
             for a in l:
-                w = cart_to_neo(location=a)
-
-            data = {'sender': 'joystick', 'message': 'joy', 'values': w}
+                w.append(cart_to_neo(location=a))
+            data = {'sender': 'joystick', 'message': 'raw_display', 'num_pixels':len(w), 'pixel_values': w}
 
             message = json.dumps(data)
 
