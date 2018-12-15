@@ -1,6 +1,6 @@
 import json
 import udp_channels as udp
-import Line
+from Line import get_line
 
 
 class JoyLights:
@@ -37,3 +37,25 @@ class JoyLights:
             self.sender.send_to(message)
         else:
             self.counter += 1
+
+
+def cart_to_neo(location):
+    x, y = location
+    #check if even
+
+    if (x % 2 == 0):
+        #x is even
+        val = (x * 8) + (7 - y)
+
+    else:
+        #x is odd
+        val = (x * 8) + y
+
+    print(val)
+    return val
+
+
+l = get_line(start=(0, 0), end=(round(4 * 8), round(4 * 8)))
+
+for a in l:
+    cart_to_neo(location=a)
