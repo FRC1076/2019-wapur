@@ -15,10 +15,11 @@ class JoyLights:
         # send json packet to arduion.
 
         if (self.counter == 10):
-            counter = 0
+            self.counter = 0
             data = {'sender': 'joystick', 'message': 'joy', 'x': x, 'y': y}
             message = json.dumps(data)
             sender = udp.UDPChannel()
+            print(message)  #for debuging
             sender.send_to(message)
         else:
-            counter += 1
+            self.counter += 1
