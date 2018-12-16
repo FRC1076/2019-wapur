@@ -45,11 +45,16 @@ class JoyLights:
             w = []
             for a in l:
                 w.append(cart_to_neo(location=a))
-            data = {'sender': 'joystick', 'message': 'raw_display', 'num_pixels':len(w), 'pixel_values': w}
+            data = {
+                'sender': 'joystick',
+                'message': 'raw_display',
+                'num_pixels': len(w),
+                'pixel_values': w
+            }
 
             message = json.dumps(data)
 
             print(message)  #for debuging
-            self.sender.send_to(message)s
+            self.sender.send_to(message)
         else:
             self.counter += 1
