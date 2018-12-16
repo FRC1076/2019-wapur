@@ -10,11 +10,11 @@ class joystick():
         self.y = 1
 
     def getX(self, ignore):
-        self.x += 1
+        #self.x += 1
         return self.x
 
     def getY(self, ignore_this_to):
-        self.y += 1
+        #self.y += 1
         return self.y
 
 

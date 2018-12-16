@@ -2,6 +2,11 @@ import json
 import udp_channels as udp
 from Line import get_line
 
+LOCALIP = "localhost"
+LOCALPORT = 8877
+REMOTEPORT = 8877
+REMOTEIP = "localhost"
+
 
 def cart_to_neo(location):
     x, y = location
@@ -27,10 +32,10 @@ class JoyLights:
 
         self.sender = udp.UDPChannel()
         self.receiver = udp.UDPChannel(
-            local_ip="10.10.76.2",
-            local_port=8877,
-            remote_port=8877,
-            remote_ip="10.10.76.7")
+            local_ip=LOCALIP,
+            local_port=LOCALPORT,
+            remote_port=REMOTEPORT,
+            remote_ip=REMOTEIP)
 
     def update_lights(self, x, y):
         # everth 10th that this is called. do this:
@@ -41,7 +46,8 @@ class JoyLights:
         if (self.counter == 10):
             self.counter = 0
 
-            l = get_line(start=(0, 0), end=(round(4 * 8), round(4 * 8)))
+            l = get_line(start=(0, 0), end=(round(x * 8), round(y * 8)))
+            print(l)
             w = []
             for a in l:
                 w.append(cart_to_neo(location=a))
