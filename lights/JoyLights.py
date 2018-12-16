@@ -20,6 +20,9 @@ def cart_to_neo(location):
         #x is odd
         val = (x * 8) + y
 
+    if (y < 0):
+        val += 256
+
     #print(val)
     return val
 
