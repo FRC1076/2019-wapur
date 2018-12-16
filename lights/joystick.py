@@ -12,16 +12,13 @@ class joystick():
 
     def getX(self, ignore):
         #self.x += 1
-        r = random.sample([-1, 1], 1)
-        r = r[0]
-        self.x = random.random() * r
+        self.x = 1
         return self.x
 
     def getY(self, ignore_this_to):
         #self.y += 1
-        r = random.sample([-1, 1], 1)
-        r = r[0]
-        self.y = random.random() * r
+
+        self.y = 1
         return self.y
 
 

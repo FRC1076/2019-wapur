@@ -11,20 +11,18 @@ REMOTEIP = "localhost"
 def cart_to_neo(location):
     x, y = location
     #check if even
-
+    panel_offset = 255
+    if y > 7:
+        panel_offset = 0
+        y = (y - 8)
     if (x % 2 == 0):
         #x is even
         val = (x * 8) + (7 - y)
-
     else:
         #x is odd
         val = (x * 8) + y
 
-    if (y < 0):
-        val += 256
-
-    #print(val)
-    return val
+    return val + panel_offset
 
 
 class JoyLights:
@@ -49,7 +47,8 @@ class JoyLights:
         if (self.counter == 10):
             self.counter = 0
 
-            l = get_line(start=(0, 0), end=(round(x * 8), round(y * 8)))
+            l = get_line(
+                start=(8, 8), end=(round((x + 1) * 8), round((y + 1) * 8)))
             print(l)
             w = []
             for a in l:
@@ -58,7 +57,8 @@ class JoyLights:
                 'sender': 'joystick',
                 'message': 'raw_display',
                 'num_pixels': len(w),
-                'pixel_values': w
+                'pixel_values': w,
+                'clear': 1
             }
 
             message = json.dumps(data)
