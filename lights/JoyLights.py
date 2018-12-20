@@ -59,6 +59,6 @@ class JoyLights:
             message = json.dumps(data)
 
             print(message)  #for debuging
-            self.sender.send_to(message)
+            self.sender.reply_to(message, REMOTEIP, REMOTEPORT)
         else:
             self.counter += 1
