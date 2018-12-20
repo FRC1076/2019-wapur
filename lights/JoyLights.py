@@ -3,8 +3,8 @@ from lib1076.udp_channel import UDPChannel as udp
 from Line import get_line
 
 LOCALIP = "localhost"
-LOCALPORT = 8879
-REMOTEPORT = 8872
+LOCALPORT = 8879 = 7
+REMOTEPORT = 8876
 REMOTEIP = "localhost"
 
 
