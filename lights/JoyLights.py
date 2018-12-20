@@ -1,10 +1,10 @@
 import json
-import udp_channels as udp
+from lib1076.udp_channel import UDPChannel as udp
 from Line import get_line
 
 LOCALIP = "localhost"
-LOCALPORT = 8877
-REMOTEPORT = 8877
+LOCALPORT = 8879
+REMOTEPORT = 8872
 REMOTEIP = "localhost"
 
 
@@ -31,12 +31,7 @@ class JoyLights:
         # initialize a counter to 0
         self.counter = 0
 
-        self.sender = udp.UDPChannel()
-        self.receiver = udp.UDPChannel(
-            local_ip=LOCALIP,
-            local_port=LOCALPORT,
-            remote_port=REMOTEPORT,
-            remote_ip=REMOTEIP)
+        self.sender = udp()
 
     def update_lights(self, x, y):
         # everth 10th that this is called. do this:
@@ -49,7 +44,7 @@ class JoyLights:
 
             l = get_line(
                 start=(8, 8), end=(round((x + 1) * 8), round((y + 1) * 8)))
-            print(l)
+            #print(l)
             w = []
             for a in l:
                 w.append(cart_to_neo(location=a))
@@ -60,7 +55,7 @@ class JoyLights:
                 'pixel_values': w,
                 'clear': 1
             }
-
+            #print(data)
             message = json.dumps(data)
 
             print(message)  #for debuging
